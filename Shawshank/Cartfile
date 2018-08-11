@@ -1,0 +1,6 @@
+github "zhuhaow/NEKit" == 0.12.7
+github "ReactiveX/RxSwift" ~> 4.0
+github "RxSwiftCommunity/RxDataSources" ~> 3.0
+
+
+
