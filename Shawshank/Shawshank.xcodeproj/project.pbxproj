@@ -26,6 +26,11 @@
 		84F35624211ED2960068CA96 /* Sodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F35623211ED2960068CA96 /* Sodium.framework */; };
 		84F35626211ED2980068CA96 /* tun2socks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F35625211ED2980068CA96 /* tun2socks.framework */; };
 		84F35628211ED29B0068CA96 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F35627211ED29B0068CA96 /* Yaml.framework */; };
+		84F35638211F47A30068CA96 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F35635211F47A30068CA96 /* RxBlocking.framework */; };
+		84F35639211F47A30068CA96 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F35636211F47A30068CA96 /* RxCocoa.framework */; };
+		84F3563C211F47A80068CA96 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F3563B211F47A80068CA96 /* RxSwift.framework */; };
+		84F3563E211FC4870068CA96 /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F3563D211FC4870068CA96 /* RxDataSources.framework */; };
+		84F35640211FC4FB0068CA96 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F3563F211FC4FB0068CA96 /* Differentiator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,12 @@
 		84F35623211ED2960068CA96 /* Sodium.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sodium.framework; path = Carthage/Build/iOS/Sodium.framework; sourceTree = "<group>"; };
 		84F35625211ED2980068CA96 /* tun2socks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tun2socks.framework; path = Carthage/Build/iOS/tun2socks.framework; sourceTree = "<group>"; };
 		84F35627211ED29B0068CA96 /* Yaml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yaml.framework; path = Carthage/Build/iOS/Yaml.framework; sourceTree = "<group>"; };
+		84F35635211F47A30068CA96 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		84F35636211F47A30068CA96 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		84F35637211F47A30068CA96 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		84F3563B211F47A80068CA96 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		84F3563D211FC4870068CA96 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		84F3563F211FC4FB0068CA96 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,17 +105,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F3563E211FC4870068CA96 /* RxDataSources.framework in Frameworks */,
 				84F355FE211EB99D0068CA96 /* NetworkExtension.framework in Frameworks */,
-				84F35620211ED2910068CA96 /* NEKit.framework in Frameworks */,
 				84F35616211ED27C0068CA96 /* CocoaAsyncSocket.framework in Frameworks */,
-				84F35626211ED2980068CA96 /* tun2socks.framework in Frameworks */,
-				84F35628211ED29B0068CA96 /* Yaml.framework in Frameworks */,
-				84F35622211ED2930068CA96 /* Resolver.framework in Frameworks */,
-				84F3561E211ED28D0068CA96 /* MMDB.framework in Frameworks */,
-				84F35624211ED2960068CA96 /* Sodium.framework in Frameworks */,
 				84F35618211ED27F0068CA96 /* CocoaLumberjack.framework in Frameworks */,
 				84F3561A211ED2840068CA96 /* CocoaLumberjackSwift.framework in Frameworks */,
 				84F3561C211ED28A0068CA96 /* lwip.framework in Frameworks */,
+				84F35620211ED2910068CA96 /* NEKit.framework in Frameworks */,
+				84F35640211FC4FB0068CA96 /* Differentiator.framework in Frameworks */,
+				84F35622211ED2930068CA96 /* Resolver.framework in Frameworks */,
+				84F35638211F47A30068CA96 /* RxBlocking.framework in Frameworks */,
+				84F3561E211ED28D0068CA96 /* MMDB.framework in Frameworks */,
+				84F3563C211F47A80068CA96 /* RxSwift.framework in Frameworks */,
+				84F35639211F47A30068CA96 /* RxCocoa.framework in Frameworks */,
+				84F35624211ED2960068CA96 /* Sodium.framework in Frameworks */,
+				84F35626211ED2980068CA96 /* tun2socks.framework in Frameworks */,
+				84F35628211ED29B0068CA96 /* Yaml.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +188,12 @@
 		84F355FC211EB99D0068CA96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84F3563F211FC4FB0068CA96 /* Differentiator.framework */,
+				84F3563D211FC4870068CA96 /* RxDataSources.framework */,
+				84F3563B211F47A80068CA96 /* RxSwift.framework */,
+				84F35635211F47A30068CA96 /* RxBlocking.framework */,
+				84F35636211F47A30068CA96 /* RxCocoa.framework */,
+				84F35637211F47A30068CA96 /* RxTest.framework */,
 				84F35627211ED29B0068CA96 /* Yaml.framework */,
 				84F35625211ED2980068CA96 /* tun2socks.framework */,
 				84F35623211ED2960068CA96 /* Sodium.framework */,
@@ -367,6 +389,12 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Sodium.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/tun2socks.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Yaml.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
 			);
 			outputPaths = (
 			);

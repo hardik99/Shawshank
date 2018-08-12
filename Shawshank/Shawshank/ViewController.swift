@@ -9,6 +9,7 @@
 import UIKit
 import NEKit
 import CocoaLumberjack
+import RxDataSources
 
 class ViewController: UIViewController {
     

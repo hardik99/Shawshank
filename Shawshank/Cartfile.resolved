@@ -1,5 +1,6 @@
 github "CocoaLumberjack/CocoaLumberjack" "3.4.2"
 github "ReactiveX/RxSwift" "4.2.0"
+github "RxSwiftCommunity/RxDataSources" "3.0.2"
 github "lexrus/MMDB-Swift" "0.2.8"
 github "robbiehanson/CocoaAsyncSocket" "7.6.3"
 github "zhuhaow/NEKit" "0.12.7"
