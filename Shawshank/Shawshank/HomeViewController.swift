@@ -10,13 +10,85 @@ import UIKit
 import NEKit
 import CocoaLumberjack
 import RxDataSources
+import RxCocoa
+import RxSwift
+import Differentiator
+import SnapKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
+    private let tableView = UITableView(frame: .zero, style: .grouped)
+    
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Double>>(
+        configureCell: { (_, tv, indexPath, element) in
+            let cell = tv.dequeueReusableCell(withIdentifier: "cell")!
+            cell.textLabel?.text = "\(element) @row \(indexPath.section) -> \(indexPath.row)"
+            return cell
+        }
+    )
+    
+    var disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialViews()
+        initialDatas()
+        initialLayouts()
     }
     
+    private func initialViews() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Shawshank"
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.addSubview(tableView)
+    }
+    
+    private func initialDatas() {
+        let item = Observable.just(
+            (0..<20).map { "\($0)" }
+        )
+
+        item.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) {
+                row, element, cell in
+                cell.textLabel?.text = "\(element) @row \(row)"
+            }
+            .disposed(by: disposeBag)
+        
+
+        tableView.rx.modelSelected(String.self)
+            .subscribe(onNext: { pair in
+                print("tap \(pair)")
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemAccessoryButtonTapped
+            .subscribe(onNext: { indexPath in
+                print("tap \(indexPath.row)")
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+    }
+    
+    private func initialLayouts() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+}
+
 //    var observerAdded: Bool = true
 //
 //    private func loadVpn() {
@@ -83,5 +155,5 @@ class ViewController: UIViewController {
 //        orignConf.providerConfiguration = conf
 //        manager.protocolConfiguration = orignConf
 //    }
-}
+
 
