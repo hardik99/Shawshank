@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840A9C3521214AF600D3209C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840A9C3421214AF600D3209C /* HomeViewModel.swift */; };
 		84705055211EB8590000866F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705054211EB8590000866F /* AppDelegate.swift */; };
 		84705057211EB8590000866F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705056211EB8590000866F /* HomeViewController.swift */; };
 		8470505A211EB8590000866F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84705058211EB8590000866F /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		840A9C3421214AF600D3209C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		84705051211EB8590000866F /* Shawshank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shawshank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84705054211EB8590000866F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84705056211EB8590000866F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840A9C3221214A2D00D3209C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				84705056211EB8590000866F /* HomeViewController.swift */,
+				840A9C3421214AF600D3209C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		840A9C3321214A3B00D3209C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				8470505D211EB85A0000866F /* LaunchScreen.storyboard */,
+				84705058211EB8590000866F /* Main.storyboard */,
+				84705054211EB8590000866F /* AppDelegate.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		84705048211EB8590000866F = {
 			isa = PBXGroup;
 			children = (
@@ -169,12 +190,10 @@
 			isa = PBXGroup;
 			children = (
 				84F355FB211EB98A0068CA96 /* Shawshank.entitlements */,
-				84705054211EB8590000866F /* AppDelegate.swift */,
-				84705056211EB8590000866F /* HomeViewController.swift */,
-				84705058211EB8590000866F /* Main.storyboard */,
-				8470505B211EB85A0000866F /* Assets.xcassets */,
-				8470505D211EB85A0000866F /* LaunchScreen.storyboard */,
 				84705060211EB85A0000866F /* Info.plist */,
+				840A9C3321214A3B00D3209C /* Config */,
+				840A9C3221214A2D00D3209C /* Home */,
+				8470505B211EB85A0000866F /* Assets.xcassets */,
 			);
 			path = Shawshank;
 			sourceTree = "<group>";
@@ -415,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84705057211EB8590000866F /* HomeViewController.swift in Sources */,
+				840A9C3521214AF600D3209C /* HomeViewModel.swift in Sources */,
 				84705055211EB8590000866F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,18 +16,16 @@ import Differentiator
 import SnapKit
 
 class HomeViewController: UIViewController {
-    
-    private let tableView = UITableView(frame: .zero, style: .grouped)
-    
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Double>>(
-        configureCell: { (_, tv, indexPath, element) in
-            let cell = tv.dequeueReusableCell(withIdentifier: "cell")!
-            cell.textLabel?.text = "\(element) @row \(indexPath.section) -> \(indexPath.row)"
-            return cell
-        }
-    )
-    
-    var disposeBag = DisposeBag()
+
+    private let tableView: UITableView = {
+        var tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        return tableView
+    }()
+
+    private var disposeBag = DisposeBag()
+
+    private var dataSource: RxTableViewSectionedAnimatedDataSource<HomeViewSectionModel>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,34 +38,32 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Shawshank"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
     }
     
     private func initialDatas() {
-        let item = Observable.just(
-            (0..<20).map { "\($0)" }
-        )
 
-        item.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) {
-                row, element, cell in
-                cell.textLabel?.text = "\(element) @row \(row)"
+        let sections = [
+            HomeViewSectionModel.init(header: "代理", items: ["s1-1", "s1-2",]),
+            HomeViewSectionModel.init(header: "高级设置", items: ["自定义 DNS", "智能路由",]),
+        ]
+
+        let dataSource = RxTableViewSectionedAnimatedDataSource<HomeViewSectionModel>(
+            configureCell: { dataSource, tableView, indexPath, item in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+                cell.textLabel?.text = dataSource.sectionModels[indexPath.section].items[indexPath.row]
+                return cell
+            },
+            titleForHeaderInSection: { dataSource, index in
+                return dataSource.sectionModels[index].identity
             }
-            .disposed(by: disposeBag)
-        
+        )
+        self.dataSource = dataSource
 
-        tableView.rx.modelSelected(String.self)
-            .subscribe(onNext: { pair in
-                print("tap \(pair)")
-            })
+        Observable.just(sections)
+            .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-        
-        tableView.rx.itemAccessoryButtonTapped
-            .subscribe(onNext: { indexPath in
-                print("tap \(indexPath.row)")
-            })
-            .disposed(by: disposeBag)
-        
+
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
