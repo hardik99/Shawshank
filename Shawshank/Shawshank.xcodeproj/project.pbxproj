@@ -15,6 +15,7 @@
 		8470505F211EB85A0000866F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8470505D211EB85A0000866F /* LaunchScreen.storyboard */; };
 		8470506A211EB85A0000866F /* ShawshankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84705069211EB85A0000866F /* ShawshankTests.swift */; };
 		8488A1A521219D670009F6B2 /* VpnManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488A1A421219D670009F6B2 /* VpnManager.swift */; };
+		84DB582B2128400E0010AB88 /* NEKitRule.conf in Resources */ = {isa = PBXBuildFile; fileRef = 84DB582A2128400E0010AB88 /* NEKitRule.conf */; };
 		84F355FE211EB99D0068CA96 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F355FD211EB99D0068CA96 /* NetworkExtension.framework */; };
 		84F35606211ECB240068CA96 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F35605211ECB240068CA96 /* PacketTunnelProvider.swift */; };
 		84F3560B211ECB240068CA96 /* ShawshankTunnel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 84F35603211ECB240068CA96 /* ShawshankTunnel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -80,6 +81,7 @@
 		84705069211EB85A0000866F /* ShawshankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShawshankTests.swift; sourceTree = "<group>"; };
 		8470506B211EB85A0000866F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8488A1A421219D670009F6B2 /* VpnManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VpnManager.swift; sourceTree = "<group>"; };
+		84DB582A2128400E0010AB88 /* NEKitRule.conf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEKitRule.conf; sourceTree = "<group>"; };
 		84F355FB211EB98A0068CA96 /* Shawshank.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shawshank.entitlements; sourceTree = "<group>"; };
 		84F355FD211EB99D0068CA96 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		84F35603211ECB240068CA96 /* ShawshankTunnel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShawshankTunnel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +195,7 @@
 			children = (
 				84F355FB211EB98A0068CA96 /* Shawshank.entitlements */,
 				84705060211EB85A0000866F /* Info.plist */,
+				84DB582921283FFF0010AB88 /* Resource */,
 				8488A1A321219D410009F6B2 /* Manager */,
 				8488A1A221219D0C0009F6B2 /* Buz */,
 				840A9C3321214A3B00D3209C /* Config */,
@@ -224,6 +227,14 @@
 				8488A1A421219D670009F6B2 /* VpnManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		84DB582921283FFF0010AB88 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				84DB582A2128400E0010AB88 /* NEKitRule.conf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		84F355FC211EB99D0068CA96 /* Frameworks */ = {
@@ -310,7 +321,6 @@
 				84F355FF211ECB240068CA96 /* Sources */,
 				84F35600211ECB240068CA96 /* Frameworks */,
 				84F35601211ECB240068CA96 /* Resources */,
-				84F35610211ECEF50068CA96 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -335,7 +345,7 @@
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.NetworkExtensions.iOS = {
 								enabled = 1;
@@ -351,6 +361,11 @@
 					};
 					84F35602211ECB240068CA96 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -380,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8470505F211EB85A0000866F /* LaunchScreen.storyboard in Resources */,
+				84DB582B2128400E0010AB88 /* NEKitRule.conf in Resources */,
 				8470505C211EB85A0000866F /* Assets.xcassets in Resources */,
 				8470505A211EB8590000866F /* Main.storyboard in Resources */,
 			);
@@ -402,19 +418,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		84F35610211ECEF50068CA96 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		84F35612211ED2050068CA96 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -720,6 +723,10 @@
 				CODE_SIGN_ENTITLEMENTS = ShawshankTunnel/ShawshankTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ShawshankTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -740,6 +747,10 @@
 				CODE_SIGN_ENTITLEMENTS = ShawshankTunnel/ShawshankTunnel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DNL5G5M9A8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ShawshankTunnel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

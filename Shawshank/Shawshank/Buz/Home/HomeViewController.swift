@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
     
     private func initialDatas() {
         let sections = [
-            HomeViewSectionModel.init(header: "代理", items: ["s1-1", "s1-2",]),
+            HomeViewSectionModel.init(header: "代理", items: ["启动",]),
             HomeViewSectionModel.init(header: "高级设置", items: ["自定义 DNS", "智能路由",]),
         ]
 
@@ -62,6 +62,14 @@ class HomeViewController: UIViewController {
         Observable.just(sections)
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .map { ($0, dataSource[$0]) }
+            .subscribe { [weak self] event in
+                guard let indexPath = event.element?.0, let item = event.element?.1 else { return }
+                self?.itemSelected(self?.tableView, indexPath: indexPath, item: item)
+            }
+            .disposed(by: disposeBag)
 
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
@@ -70,6 +78,16 @@ class HomeViewController: UIViewController {
     private func initialLayouts() {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+}
+
+// MARK: Configure Cell
+extension HomeViewController {
+    private func itemSelected(_ tableView: UITableView?, indexPath: IndexPath, item: HomeViewSectionModel.Item) {
+        tableView?.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 0 {
+            VpnManager.shared.connect()
         }
     }
 }

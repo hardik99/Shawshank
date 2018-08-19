@@ -12,5 +12,11 @@
 	<array>
 		<string>allow-vpn</string>
 	</array>
+	<key>com.apple.external-accessory.wireless-configuration</key>
+	<true/>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.gua.desgard.Shawshank</string>
+	</array>
 </dict>
 </plist>
